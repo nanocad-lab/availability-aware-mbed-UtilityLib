@@ -42,7 +42,7 @@ void SerialManager::attach_rx(void (*fptr)(void)) {
 
 template<typename T> void SerialManager::attach_rx(T *tptr, void (T::*mptr)(void)) {
     //set user function pointer
-    detach();
+    detach_rx();
     if (tptr != NULL && mptr != NULL)
         __user_fptr = new FunctionPointer(tptr, mptr);
 }
